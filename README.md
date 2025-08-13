@@ -8,20 +8,7 @@ This project performs **RFM (Recency, Frequency, Monetary) analysis** on a custo
 
 ## Project Structure
 
-rfm-analysis/
-│── notebooks/
-│     └── rfm_analysis.ipynb      # Your full RFM analysis notebook
-│── data/
-│     └── eco_sample.csv          # Sample dataset (1,000 rows)
-│── images/
-│     ├── bar_chart.png           # Optional: screenshot of bar chart
-│     └── treemap.png             # Optional: screenshot of treemap
-│── requirements.txt              # Python dependencies
-│── README.md                     # Project documentation
-│── LICENSE                       # Optional: MIT License
 
-
----
 
 ## **Dataset**
 
