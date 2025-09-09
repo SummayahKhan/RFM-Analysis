@@ -1,62 +1,53 @@
-# RFM-Analysis
-# RFM Customer Segmentation Analysis
+# 📊 RFM Analysis Project
 
-This project performs **RFM (Recency, Frequency, Monetary) analysis** on a customer dataset to segment customers and visualize their distribution. It includes data cleaning, calculation of RFM scores, customer segmentation, and visualizations (bar chart & treemap).
-
----
-
-
-## Project Structure
-
-
-
-## **Dataset**
-
-- `eco.csv` contains transaction data with the following columns:  
-  - `CustomerID` : Unique identifier for each customer  
-  - `InvoiceNo` : Invoice/Order number  
-  - `InvoiceDate` : Date of transaction  
-  - `StockCode` : Product code  
-  - `Quantity` : Quantity purchased  
-  - `UnitPrice` : Price per unit  
-
-> Note: Data should be cleaned to remove duplicates, missing CustomerIDs, and negative/zero quantities.
+This project performs **RFM (Recency, Frequency, Monetary) analysis** on customer transaction data using **Excel**.  
+It includes **data cleaning, calculation of RFM scores (0–9), customer segmentation into 9 groups, and visualizations**.
 
 ---
 
-## **Steps in Analysis**
-
-1. **Data Cleaning**  
-   - Convert `InvoiceDate` to datetime  
-   - Remove duplicates  
-   - Remove rows with missing or blank `CustomerID`  
-   - Remove negative or zero quantities and unit prices  
-   - Calculate `Revenue = Quantity × UnitPrice`  
-
-2. **RFM Calculation**  
-   - **Recency**: Days since last purchase  
-   - **Frequency**: Number of unique invoices per customer  
-   - **Monetary**: Total revenue per customer  
-   - Normalize last purchase date and compute `Recency` relative to dataset max date  
-
-3. **RFM Scoring**  
-   - Recency: Lower is better → higher score for more recent purchases  
-   - Frequency & Monetary: Higher is better → higher score for larger values  
-   - Scores assigned using `pd.qcut` into 5 levels (1–5)  
-
-4. **Customer Segmentation**  
-   - Assign each customer to segments such as **CHAMPION**, **LOYAL CUSTOMER**, **NEW CUSTOMER**, **AT RISK**, etc., based on R, F, M scores  
-
-5. **Visualization**  
-   - **Bar Chart**: Count of customers per segment  
-   - **Treemap**: Visual representation of customer distribution by segment using `squarify`  
+## 📂 Project Structure
+- `RFM_Analysis.xlsx` – Excel file with Raw, cleaned data, RFM calculations, pivot tables, and segmentation  
+  > ⚠️ **Note:** This file is large (~69 MB) and tracked with **Git LFS**. Make sure Git LFS is installed to clone or download it properly.  
+- `README.md` – Project documentation  
 
 ---
 
-## **Dependencies**
+## 🛠 Steps in Analysis
 
-```txt
-numpy
-pandas
-matplotlib
-squarify
+### 1️⃣ Data Cleaning
+- Convert transaction dates to proper datetime format  
+- Remove duplicates and invalid entries  
+- Remove negative or zero quantities and unit prices  
+- Calculate `Revenue = Quantity × UnitPrice`  
+
+### 2️⃣ RFM Calculation
+- **Recency:** Days since last purchase  
+- **Frequency:** Number of unique invoices per customer  
+- **Monetary:** Total revenue per customer  
+- Normalize last purchase date and compute `Recency` relative to dataset max date  
+
+### 3️⃣ RFM Scoring
+- Scores assigned **from 0 to 9** for each metric  
+- Recency: Lower is better → higher score for recent purchases  
+- Frequency & Monetary: Higher is better → higher score for larger values  
+
+### 4️⃣ Customer Segmentation
+- Customers are segmented into **9 groups** based on RFM scores:  
+  - 🏆 CHAMPION  
+  - ❄️ HIBERNATING  
+  - ⚠️ NEED ATTENTION  
+  - 🌱 POTENTIAL LOYALIST  
+  - 🆕 NEW CUSTOMER  
+  - ✨ PROMISING  
+  - 🔻 AT RISK  
+  - 💖 LOYAL CUSTOMER  
+  - 📝 OTHER  
+
+### 5️⃣ Visualization
+- Bar charts and treemaps to show customer distribution across segments  
+
+---
+
+## 💻 Tools Used
+- Microsoft Excel
+- Git LFS (for large Excel file)
